@@ -11,6 +11,5 @@ class StdInTest {
         assertTrue(true);
         final String[] strs = StdIn.readAllStrings();
 
-
     }
 }
