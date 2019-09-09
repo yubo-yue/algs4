@@ -18,14 +18,14 @@ import java.util.Comparator;
  *  It supports the usual insert and delete-the-minimum operations, 
  *  along with the merging of two heaps together.
  *  It also supports methods for peeking at the minimum key,
- *  testing if the priority queue is empty, and iterating through
+ *  testing if the priority queue is isEmpty, and iterating through
  *  the keys.
  *  It is possible to build the priority queue using a Comparator.
  *  If not, the natural order relation between the keys will be used.
  *  
  *  This implementation uses a Fibonacci heap.
  *  The delete-the-minimum operation takes amortized logarithmic time.
- *  The insert, min-key, is-empty, size, union and constructor take constant time.
+ *  The insert, min-key, is-isEmpty, size, union and constructor take constant time.
  *
  *  @author Tristan Claverie
  */
@@ -45,7 +45,7 @@ public class FibonacciMinPQ<Key> implements Iterable<Key> {
 	}
 	
 	/**
-	 * Initializes an empty priority queue
+	 * Initializes an isEmpty priority queue
 	 * Worst case is O(1)
 	 * @param C a Comparator over the Keys
 	 */
@@ -54,7 +54,7 @@ public class FibonacciMinPQ<Key> implements Iterable<Key> {
 	}
 	
     /**
-     * Initializes an empty priority queue
+     * Initializes an isEmpty priority queue
      * Worst case is O(1)
      */
 	public FibonacciMinPQ() {
@@ -83,9 +83,9 @@ public class FibonacciMinPQ<Key> implements Iterable<Key> {
 	}
 
 	/**
-	 * Whether the priority queue is empty
+	 * Whether the priority queue is isEmpty
 	 * Worst case is O(1)
-	 * @return true if the priority queue is empty, false if not
+	 * @return true if the priority queue is isEmpty, false if not
 	 */
 	public boolean isEmpty() {
 		return size == 0;
@@ -117,22 +117,22 @@ public class FibonacciMinPQ<Key> implements Iterable<Key> {
 	/**
 	 * Gets the minimum key currently in the queue
 	 * Worst case is O(1)
-	 * @throws java.util.NoSuchElementException if the priority queue is empty
+	 * @throws java.util.NoSuchElementException if the priority queue is isEmpty
 	 * @return the minimum key currently in the priority queue
 	 */
 	public Key minKey() {
-		if (isEmpty()) throw new NoSuchElementException("Priority queue is empty");
+		if (isEmpty()) throw new NoSuchElementException("Priority queue is isEmpty");
 		return min.key;
 	}
 
 	/**
 	 * Deletes the minimum key
 	 * Worst case is O(log(n)) (amortized)
-	 * @throws java.util.NoSuchElementException if the priority queue is empty
+	 * @throws java.util.NoSuchElementException if the priority queue is isEmpty
 	 * @return the minimum key
 	 */
 	public Key delMin() {
-		if (isEmpty()) throw new NoSuchElementException("Priority queue is empty");
+		if (isEmpty()) throw new NoSuchElementException("Priority queue is isEmpty");
 		head = cut(min, head);
 		Node x = min.child;
 		Key key = min.key;

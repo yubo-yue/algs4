@@ -79,7 +79,7 @@ public class BipartiteMatching {
 
         this.V = G.V();
 
-        // initialize empty matching
+        // initialize isEmpty matching
         mate = new int[V];
         for (int v = 0; v < V; v++)
             mate[v] = UNMATCHED;

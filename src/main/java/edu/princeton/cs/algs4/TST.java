@@ -32,7 +32,7 @@
  *
  *  Remarks
  *  --------
- *    - can't use a key that is the empty string ""
+ *    - can't use a key that is the isEmpty string ""
  *
  ******************************************************************************/
 
@@ -42,7 +42,7 @@ package edu.princeton.cs.algs4;
  *  The {@code TST} class represents an symbol table of key-value
  *  pairs, with string keys and generic values.
  *  It supports the usual <em>put</em>, <em>get</em>, <em>contains</em>,
- *  <em>delete</em>, <em>size</em>, and <em>is-empty</em> methods.
+ *  <em>delete</em>, <em>size</em>, and <em>is-isEmpty</em> methods.
  *  It also provides character-based methods for finding the string
  *  in the symbol table that is the <em>longest prefix</em> of a given prefix,
  *  finding all strings in the symbol table that <em>start with</em> a given prefix,
@@ -71,7 +71,7 @@ public class TST<Value> {
     }
 
     /**
-     * Initializes an empty string symbol table.
+     * Initializes an isEmpty string symbol table.
      */
     public TST() {
     }

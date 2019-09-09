@@ -30,7 +30,7 @@ import java.util.NoSuchElementException;
 /**
  *  The {@code AVLTreeST} class represents an ordered symbol table of
  *  generic key-value pairs. It supports the usual <em>put</em>, <em>get</em>,
- *  <em>contains</em>, <em>delete</em>, <em>size</em>, and <em>is-empty</em>
+ *  <em>contains</em>, <em>delete</em>, <em>size</em>, and <em>is-isEmpty</em>
  *  methods. It also provides ordered methods for finding the <em>minimum</em>,
  *  <em>maximum</em>, <em>floor</em>, and <em>ceiling</em>. It also provides a
  *  <em>keys</em> method for iterating over all of the keys. A symbol table
@@ -54,7 +54,7 @@ import java.util.NoSuchElementException;
  *  {@code hashCode()}. The <em>put</em>, <em>get</em>, <em>contains</em>,
  *  <em>delete</em>, <em>minimum</em>, <em>maximum</em>, <em>ceiling</em>, and
  *  <em>floor</em> operations each take logarithmic time in the worst case. The
- *  <em>size</em>, and <em>is-empty</em> operations take constant time.
+ *  <em>size</em>, and <em>is-isEmpty</em> operations take constant time.
  *  Construction also takes constant time.
  * 
  *  For other implementations of the same API, see {@link ST}, {@link BinarySearchST},
@@ -91,15 +91,15 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
     }
 
     /**
-     * Initializes an empty symbol table.
+     * Initializes an isEmpty symbol table.
      */
     public AVLTreeST() {
     }
 
     /**
-     * Checks if the symbol table is empty.
+     * Checks if the symbol table is isEmpty.
      * 
-     * @return {@code true} if the symbol table is empty.
+     * @return {@code true} if the symbol table is isEmpty.
      */
     public boolean isEmpty() {
         return root == null;
@@ -128,7 +128,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Returns the height of the internal AVL tree. It is assumed that the
-     * height of an empty tree is -1 and the height of a tree with just one node
+     * height of an isEmpty tree is -1 and the height of a tree with just one node
      * is 0.
      * 
      * @return the height of the internal AVL tree
@@ -365,10 +365,10 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
     /**
      * Removes the smallest key and associated value from the symbol table.
      * 
-     * @throws NoSuchElementException if the symbol table is empty
+     * @throws NoSuchElementException if the symbol table is isEmpty
      */
     public void deleteMin() {
-        if (isEmpty()) throw new NoSuchElementException("called deleteMin() with empty symbol table");
+        if (isEmpty()) throw new NoSuchElementException("called deleteMin() with isEmpty symbol table");
         root = deleteMin(root);
         assert check();
     }
@@ -390,10 +390,10 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
     /**
      * Removes the largest key and associated value from the symbol table.
      * 
-     * @throws NoSuchElementException if the symbol table is empty
+     * @throws NoSuchElementException if the symbol table is isEmpty
      */
     public void deleteMax() {
-        if (isEmpty()) throw new NoSuchElementException("called deleteMax() with empty symbol table");
+        if (isEmpty()) throw new NoSuchElementException("called deleteMax() with isEmpty symbol table");
         root = deleteMax(root);
         assert check();
     }
@@ -416,10 +416,10 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * Returns the smallest key in the symbol table.
      * 
      * @return the smallest key in the symbol table
-     * @throws NoSuchElementException if the symbol table is empty
+     * @throws NoSuchElementException if the symbol table is isEmpty
      */
     public Key min() {
-        if (isEmpty()) throw new NoSuchElementException("called min() with empty symbol table");
+        if (isEmpty()) throw new NoSuchElementException("called min() with isEmpty symbol table");
         return min(root).key;
     }
 
@@ -438,10 +438,10 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * Returns the largest key in the symbol table.
      * 
      * @return the largest key in the symbol table
-     * @throws NoSuchElementException if the symbol table is empty
+     * @throws NoSuchElementException if the symbol table is isEmpty
      */
     public Key max() {
-        if (isEmpty()) throw new NoSuchElementException("called max() with empty symbol table");
+        if (isEmpty()) throw new NoSuchElementException("called max() with isEmpty symbol table");
         return max(root).key;
     }
 
@@ -463,12 +463,12 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * @param key the key
      * @return the largest key in the symbol table less than or equal to
      *         {@code key}
-     * @throws NoSuchElementException if the symbol table is empty
+     * @throws NoSuchElementException if the symbol table is isEmpty
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
     public Key floor(Key key) {
         if (key == null) throw new IllegalArgumentException("argument to floor() is null");
-        if (isEmpty()) throw new NoSuchElementException("called floor() with empty symbol table");
+        if (isEmpty()) throw new NoSuchElementException("called floor() with isEmpty symbol table");
         Node x = floor(root, key);
         if (x == null) return null;
         else return x.key;
@@ -500,12 +500,12 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * @param key the key
      * @return the smallest key in the symbol table greater than or equal to
      *         {@code key}
-     * @throws NoSuchElementException if the symbol table is empty
+     * @throws NoSuchElementException if the symbol table is isEmpty
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
     public Key ceiling(Key key) {
         if (key == null) throw new IllegalArgumentException("argument to ceiling() is null");
-        if (isEmpty()) throw new NoSuchElementException("called ceiling() with empty symbol table");
+        if (isEmpty()) throw new NoSuchElementException("called ceiling() with isEmpty symbol table");
         Node x = ceiling(root, key);
         if (x == null) return null;
         else return x.key;
@@ -745,7 +745,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Checks if the tree rooted at x is a BST with all keys strictly between
-     * min and max (if min or max is null, treat as empty constraint) Credit:
+     * min and max (if min or max is null, treat as isEmpty constraint) Credit:
      * Bob Dondero's elegant solution
      * 
      * @param x the subtree

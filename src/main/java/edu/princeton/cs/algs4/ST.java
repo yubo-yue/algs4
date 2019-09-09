@@ -19,7 +19,7 @@ import java.util.TreeMap;
  *  The {@code ST} class represents an ordered symbol table of generic
  *  key-value pairs.
  *  It supports the usual <em>put</em>, <em>get</em>, <em>contains</em>,
- *  <em>delete</em>, <em>size</em>, and <em>is-empty</em> methods.
+ *  <em>delete</em>, <em>size</em>, and <em>is-isEmpty</em> methods.
  *  It also provides ordered methods for finding the <em>minimum</em>,
  *  <em>maximum</em>, <em>floor</em>, and <em>ceiling</em>.
  *  It also provides a <em>keys</em> method for iterating over all of the keys.
@@ -38,7 +38,7 @@ import java.util.TreeMap;
  *  The <em>put</em>, <em>contains</em>, <em>remove</em>, <em>minimum</em>,
  *  <em>maximum</em>, <em>ceiling</em>, and <em>floor</em> operations each take
  *  logarithmic time in the worst case.
- *  The <em>size</em>, and <em>is-empty</em> operations take constant time.
+ *  The <em>size</em>, and <em>is-isEmpty</em> operations take constant time.
  *  Construction takes constant time.
  *  <p>
  *  For additional documentation, see <a href="https://algs4.cs.princeton.edu/35applications">Section 3.5</a> of
@@ -55,7 +55,7 @@ public class ST<Key extends Comparable<Key>, Value> implements Iterable<Key> {
     private TreeMap<Key, Value> st;
 
     /**
-     * Initializes an empty symbol table.
+     * Initializes an isEmpty symbol table.
      */
     public ST() {
         st = new TreeMap<Key, Value>();
@@ -126,9 +126,9 @@ public class ST<Key extends Comparable<Key>, Value> implements Iterable<Key> {
     }
 
     /**
-     * Returns true if this symbol table is empty.
+     * Returns true if this symbol table is isEmpty.
      *
-     * @return {@code true} if this symbol table is empty and {@code false} otherwise
+     * @return {@code true} if this symbol table is isEmpty and {@code false} otherwise
      */
     public boolean isEmpty() {
         return size() == 0;
@@ -166,10 +166,10 @@ public class ST<Key extends Comparable<Key>, Value> implements Iterable<Key> {
      * Returns the smallest key in this symbol table.
      *
      * @return the smallest key in this symbol table
-     * @throws NoSuchElementException if this symbol table is empty
+     * @throws NoSuchElementException if this symbol table is isEmpty
      */
     public Key min() {
-        if (isEmpty()) throw new NoSuchElementException("calls min() with empty symbol table");
+        if (isEmpty()) throw new NoSuchElementException("calls min() with isEmpty symbol table");
         return st.firstKey();
     }
 
@@ -177,10 +177,10 @@ public class ST<Key extends Comparable<Key>, Value> implements Iterable<Key> {
      * Returns the largest key in this symbol table.
      *
      * @return the largest key in this symbol table
-     * @throws NoSuchElementException if this symbol table is empty
+     * @throws NoSuchElementException if this symbol table is isEmpty
      */
     public Key max() {
-        if (isEmpty()) throw new NoSuchElementException("calls max() with empty symbol table");
+        if (isEmpty()) throw new NoSuchElementException("calls max() with isEmpty symbol table");
         return st.lastKey();
     }
 

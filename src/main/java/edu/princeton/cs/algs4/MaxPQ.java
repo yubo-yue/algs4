@@ -28,13 +28,13 @@ import java.util.NoSuchElementException;
  *  The {@code MaxPQ} class represents a priority queue of generic keys.
  *  It supports the usual <em>insert</em> and <em>delete-the-maximum</em>
  *  operations, along with methods for peeking at the maximum key,
- *  testing if the priority queue is empty, and iterating through
+ *  testing if the priority queue is isEmpty, and iterating through
  *  the keys.
  *  <p>
  *  This implementation uses a binary heap.
  *  The <em>insert</em> and <em>delete-the-maximum</em> operations take
  *  logarithmic amortized time.
- *  The <em>max</em>, <em>size</em>, and <em>is-empty</em> operations take constant time.
+ *  The <em>max</em>, <em>size</em>, and <em>is-isEmpty</em> operations take constant time.
  *  Construction takes time proportional to the specified capacity or the number of
  *  items used to initialize the data structure.
  *  <p>
@@ -53,7 +53,7 @@ public class MaxPQ<Key> implements Iterable<Key> {
     private Comparator<Key> comparator;  // optional comparator
 
     /**
-     * Initializes an empty priority queue with the given initial capacity.
+     * Initializes an isEmpty priority queue with the given initial capacity.
      *
      * @param  initCapacity the initial capacity of this priority queue
      */
@@ -63,14 +63,14 @@ public class MaxPQ<Key> implements Iterable<Key> {
     }
 
     /**
-     * Initializes an empty priority queue.
+     * Initializes an isEmpty priority queue.
      */
     public MaxPQ() {
         this(1);
     }
 
     /**
-     * Initializes an empty priority queue with the given initial capacity,
+     * Initializes an isEmpty priority queue with the given initial capacity,
      * using the given comparator.
      *
      * @param  initCapacity the initial capacity of this priority queue
@@ -83,7 +83,7 @@ public class MaxPQ<Key> implements Iterable<Key> {
     }
 
     /**
-     * Initializes an empty priority queue using the given comparator.
+     * Initializes an isEmpty priority queue using the given comparator.
      *
      * @param  comparator the order in which to compare the keys
      */
@@ -110,9 +110,9 @@ public class MaxPQ<Key> implements Iterable<Key> {
 
 
     /**
-     * Returns true if this priority queue is empty.
+     * Returns true if this priority queue is isEmpty.
      *
-     * @return {@code true} if this priority queue is empty;
+     * @return {@code true} if this priority queue is isEmpty;
      *         {@code false} otherwise
      */
     public boolean isEmpty() {
@@ -132,7 +132,7 @@ public class MaxPQ<Key> implements Iterable<Key> {
      * Returns a largest key on this priority queue.
      *
      * @return a largest key on this priority queue
-     * @throws NoSuchElementException if this priority queue is empty
+     * @throws NoSuchElementException if this priority queue is isEmpty
      */
     public Key max() {
         if (isEmpty()) throw new NoSuchElementException("Priority queue underflow");
@@ -170,7 +170,7 @@ public class MaxPQ<Key> implements Iterable<Key> {
      * Removes and returns a largest key on this priority queue.
      *
      * @return a largest key on this priority queue
-     * @throws NoSuchElementException if this priority queue is empty
+     * @throws NoSuchElementException if this priority queue is isEmpty
      */
     public Key delMax() {
         if (isEmpty()) throw new NoSuchElementException("Priority queue underflow");

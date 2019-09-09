@@ -66,7 +66,7 @@ public class LongestCommonSubstring {
      * @param  s one string
      * @param  t the other string
      * @return the longest common string that appears as a substring
-     *         in both {@code s} and {@code t}; the empty string
+     *         in both {@code s} and {@code t}; the isEmpty string
      *         if no such string
      */
     public static String lcs(String s, String t) {

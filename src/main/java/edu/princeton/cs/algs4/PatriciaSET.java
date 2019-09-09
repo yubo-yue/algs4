@@ -32,7 +32,7 @@ import java.util.Iterator;
  *  The {@code PatriciaSET} class provides an implementation of an
  *  unordered set, with the restriction that the items (keys) are of class
  *  {@link java.lang.String}. It supports the usual <em>add</em>,
- *  <em>contains</em>, <em>delete</em>, <em>size</em>, and <em>is-empty</em>
+ *  <em>contains</em>, <em>delete</em>, <em>size</em>, and <em>is-isEmpty</em>
  *  methods. It also provides an <em>iterator</em> method for iterating over all
  *  the elements in the set.
  *  <p>
@@ -109,7 +109,7 @@ public class PatriciaSET implements Iterable<String> {
     };
 
     /**
-     * Initializes an empty PATRICIA-based set.
+     * Initializes an isEmpty PATRICIA-based set.
      */
     /* The constructor creates a head (sentinel) node that contains a
      * zero-length string.
@@ -125,7 +125,7 @@ public class PatriciaSET implements Iterable<String> {
      * Adds the key to the set if it is not already present.
      * @param key the key to add
      * @throws IllegalArgumentException if {@code key} is {@code null}
-     * @throws IllegalArgumentException if {@code key} is the empty string.
+     * @throws IllegalArgumentException if {@code key} is the isEmpty string.
      */
     public void add(String key) {
         if (key == null) throw new IllegalArgumentException("called add(null)");
@@ -166,7 +166,7 @@ public class PatriciaSET implements Iterable<String> {
      * @return {@code true} if the set contains {@code key} and
      * {@code false} otherwise
      * @throws IllegalArgumentException if {@code key} is {@code null}
-     * @throws IllegalArgumentException if {@code key} is the empty string.
+     * @throws IllegalArgumentException if {@code key} is the isEmpty string.
      */
     public boolean contains(String key) {
         if (key == null) throw new IllegalArgumentException("called contains(null)");
@@ -185,7 +185,7 @@ public class PatriciaSET implements Iterable<String> {
      * Removes the key from the set if the key is present.
      * @param key the key
      * @throws IllegalArgumentException if {@code key} is {@code null}
-     * @throws IllegalArgumentException if {@code key} is the empty string.
+     * @throws IllegalArgumentException if {@code key} is the isEmpty string.
      */
     public void delete(String key) {
         if (key == null) throw new IllegalArgumentException("called delete(null)");
@@ -231,8 +231,8 @@ public class PatriciaSET implements Iterable<String> {
     }
 
     /**
-     * Is the set empty?
-     * @return {@code true} if the set is empty, and {@code false}
+     * Is the set isEmpty?
+     * @return {@code true} if the set is isEmpty, and {@code false}
      * otherwise
      */
     boolean isEmpty() {

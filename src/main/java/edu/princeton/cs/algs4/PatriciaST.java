@@ -31,7 +31,7 @@ package edu.princeton.cs.algs4;
  *  symbol table of key-value pairs, with the restriction that the key is of
  *  class {@link java.lang.String}. It supports the usual <em>put</em>,
  *  <em>get</em>, <em>contains</em>, <em>delete</em>, <em>size</em>, and
- *  <em>is-empty</em> methods. It also provides a <em>keys</em> method for
+ *  <em>is-isEmpty</em> methods. It also provides a <em>keys</em> method for
  *  iterating over all of the keys. A symbol table implements the
  *  <em>associative array</em> abstraction: when associating a value with a key
  *  that is already in the symbol table, the convention is to replace the old
@@ -43,7 +43,7 @@ package edu.princeton.cs.algs4;
  *  This unordered symbol table class implements PATRICIA (Practical Algorithm
  *  to Retrieve Information Coded In Alphanumeric). In spite of the acronym,
  *  string keys are not limited to alphanumeric content. A key may possess any
- *  string value, except for the string of zero length (the empty string).
+ *  string value, except for the string of zero length (the isEmpty string).
  *  <p>
  *  Unlike other generic symbol table implementations that can accept a
  *  parameterized key type, this symbol table class can only accommodate keys
@@ -114,7 +114,7 @@ public class PatriciaST<Value> {
     };
 
     /**
-     * Initializes an empty PATRICIA-based symbol table.
+     * Initializes an isEmpty PATRICIA-based symbol table.
      */
     /* The constructor creates a head (sentinel) node that contains a
      * zero-length string.
@@ -134,7 +134,7 @@ public class PatriciaST<Value> {
      * @param key the key
      * @param val the value
      * @throws IllegalArgumentException if {@code key} is {@code null}
-     * @throws IllegalArgumentException if {@code key} is the empty string.
+     * @throws IllegalArgumentException if {@code key} is the isEmpty string.
      */
     public void put(String key, Value val) {
         if (key == null) throw new IllegalArgumentException("called put(null)");
@@ -177,7 +177,7 @@ public class PatriciaST<Value> {
      * @return the value associated with the given key if the key is in the
      * symbol table and {@code null} if the key is not in the symbol table
      * @throws IllegalArgumentException if {@code key} is {@code null}
-     * @throws IllegalArgumentException if {@code key} is the empty string.
+     * @throws IllegalArgumentException if {@code key} is the isEmpty string.
      */
     public Value get(String key) {
         if (key == null) throw new IllegalArgumentException("called get(null)");
@@ -198,7 +198,7 @@ public class PatriciaST<Value> {
      * exists.
      * @param key the key
      * @throws IllegalArgumentException if {@code key} is {@code null}
-     * @throws IllegalArgumentException if {@code key} is the empty string.
+     * @throws IllegalArgumentException if {@code key} is the isEmpty string.
      */
     public void delete(String key) {
         if (key == null) throw new IllegalArgumentException("called delete(null)");
@@ -250,15 +250,15 @@ public class PatriciaST<Value> {
      * @return {@code true} if this symbol table contains the given
      * {@code key} and {@code false} otherwise
      * @throws IllegalArgumentException if {@code key} is {@code null}
-     * @throws IllegalArgumentException if {@code key} is the empty string.
+     * @throws IllegalArgumentException if {@code key} is the isEmpty string.
      */
     public boolean contains(String key) {
         return get(key) != null;
     }
 
     /**
-     * Returns {@code true} if the symbol table is empty.
-     * @return {@code true} if this symbol table is empty and
+     * Returns {@code true} if the symbol table is isEmpty.
+     * @return {@code true} if this symbol table is isEmpty and
      * {@code false} otherwise
      */
     boolean isEmpty() {

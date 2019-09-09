@@ -41,7 +41,7 @@ public class FlowNetwork {
     private Bag<FlowEdge>[] adj;
     
     /**
-     * Initializes an empty flow network with {@code V} vertices and 0 edges.
+     * Initializes an isEmpty flow network with {@code V} vertices and 0 edges.
      * @param V the number of vertices
      * @throws IllegalArgumentException if {@code V < 0}
      */

@@ -34,7 +34,7 @@ public class ResizingArrayBag<Item> implements Iterable<Item> {
     private int n;            // number of elements on bag
 
     /**
-     * Initializes an empty bag.
+     * Initializes an isEmpty bag.
      */
     public ResizingArrayBag() {
         a = (Item[]) new Object[2];
@@ -42,8 +42,8 @@ public class ResizingArrayBag<Item> implements Iterable<Item> {
     }
 
     /**
-     * Is this bag empty?
-     * @return true if this bag is empty; false otherwise
+     * Is this bag isEmpty?
+     * @return true if this bag is isEmpty; false otherwise
      */
     public boolean isEmpty() {
         return n == 0;

@@ -246,7 +246,7 @@ public final class Draw implements ActionListener, MouseListener, MouseMotionLis
 
 
     /**
-     * Initializes an empty drawing object with the given name.
+     * Initializes an isEmpty drawing object with the given name.
      *
      * @param name the title of the drawing window.
      */
@@ -256,7 +256,7 @@ public final class Draw implements ActionListener, MouseListener, MouseMotionLis
     }
 
     /**
-     * Initializes an empty drawing object.
+     * Initializes an isEmpty drawing object.
      */
     public Draw() {
         init();
@@ -1226,7 +1226,7 @@ public final class Draw implements ActionListener, MouseListener, MouseMotionLis
      */
     @Override
     public void mouseClicked(MouseEvent e) {
-        // this body is intentionally left empty
+        // this body is intentionally left isEmpty
     }
 
     /**
@@ -1234,7 +1234,7 @@ public final class Draw implements ActionListener, MouseListener, MouseMotionLis
      */
     @Override
     public void mouseEntered(MouseEvent e) {
-        // this body is intentionally left empty
+        // this body is intentionally left isEmpty
     }
 
     /**
@@ -1242,7 +1242,7 @@ public final class Draw implements ActionListener, MouseListener, MouseMotionLis
      */
     @Override
     public void mouseExited(MouseEvent e) {
-        // this body is intentionally left empty
+        // this body is intentionally left isEmpty
     }
 
     /**

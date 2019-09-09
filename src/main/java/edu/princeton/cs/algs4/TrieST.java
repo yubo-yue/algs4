@@ -24,7 +24,7 @@ package edu.princeton.cs.algs4;
  *  The {@code TrieST} class represents an symbol table of key-value
  *  pairs, with string keys and generic values.
  *  It supports the usual <em>put</em>, <em>get</em>, <em>contains</em>,
- *  <em>delete</em>, <em>size</em>, and <em>is-empty</em> methods.
+ *  <em>delete</em>, <em>size</em>, and <em>is-isEmpty</em> methods.
  *  It also provides character-based methods for finding the string
  *  in the symbol table that is the <em>longest prefix</em> of a given prefix,
  *  finding all strings in the symbol table that <em>start with</em> a given prefix,
@@ -41,7 +41,7 @@ package edu.princeton.cs.algs4;
  *  The <em>put</em>, <em>contains</em>, <em>delete</em>, and
  *  <em>longest prefix</em> operations take time proportional to the length
  *  of the key (in the worst case). Construction takes constant time.
- *  The <em>size</em>, and <em>is-empty</em> operations take constant time.
+ *  The <em>size</em>, and <em>is-isEmpty</em> operations take constant time.
  *  Construction takes constant time.
  *  <p>
  *  For additional documentation, see <a href="https://algs4.cs.princeton.edu/52trie">Section 5.2</a> of
@@ -61,7 +61,7 @@ public class TrieST<Value> {
     }
 
    /**
-     * Initializes an empty string symbol table.
+     * Initializes an isEmpty string symbol table.
      */
     public TrieST() {
     }
@@ -135,8 +135,8 @@ public class TrieST<Value> {
     }
 
     /**
-     * Is this symbol table empty?
-     * @return {@code true} if this symbol table is empty and {@code false} otherwise
+     * Is this symbol table isEmpty?
+     * @return {@code true} if this symbol table is isEmpty and {@code false} otherwise
      */
     public boolean isEmpty() {
         return size() == 0;
@@ -258,7 +258,7 @@ public class TrieST<Value> {
             x.next[c] = delete(x.next[c], key, d+1);
         }
 
-        // remove subtrie rooted at x if it is completely empty
+        // remove subtrie rooted at x if it is completely isEmpty
         if (x.val != null) return x;
         for (int c = 0; c < R; c++)
             if (x.next[c] != null)

@@ -1717,7 +1717,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
      */
     @Override
     public void mouseClicked(MouseEvent e) {
-        // this body is intentionally left empty
+        // this body is intentionally left isEmpty
     }
 
     /**
@@ -1725,7 +1725,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
      */
     @Override
     public void mouseEntered(MouseEvent e) {
-        // this body is intentionally left empty
+        // this body is intentionally left isEmpty
     }
 
     /**
@@ -1733,7 +1733,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
      */
     @Override
     public void mouseExited(MouseEvent e) {
-        // this body is intentionally left empty
+        // this body is intentionally left isEmpty
     }
 
     /**

@@ -20,14 +20,14 @@ import java.util.NoSuchElementException;
  *  an integer between 0 and N-1 is associated with each key ; the client
  *  uses this integer to specify which key to delete or change.
  *  It also supports methods for peeking at the minimum key,
- *  testing if the priority queue is empty, and iterating through
+ *  testing if the priority queue is isEmpty, and iterating through
  *  the keys.
  *  
  *  This implementation uses a binomial heap along with an array to associate
  *  keys with integers in the given range.
  *  The insert, delete-the-minimum, delete, change-key, decrease-key,
  *  increase-key and size operations take logarithmic time.
- *  The is-empty, min-index, min-key, and key-of operations take constant time.
+ *  The is-isEmpty, min-index, min-key, and key-of operations take constant time.
  *  Construction takes time proportional to the specified capacity.
  *
  *  @author Tristan Claverie
@@ -48,7 +48,7 @@ public class IndexBinomialMinPQ<Key> implements Iterable<Integer> {
 	}
 	
     /**
-     * Initializes an empty indexed priority queue with indices between {@code 0} to {@code N-1}
+     * Initializes an isEmpty indexed priority queue with indices between {@code 0} to {@code N-1}
      * Worst case is O(n)
      * @param N number of keys in the priority queue, index from {@code 0} to {@code N-1}
      * @throws java.lang.IllegalArgumentException if {@code N < 0}
@@ -61,7 +61,7 @@ public class IndexBinomialMinPQ<Key> implements Iterable<Integer> {
 	}
 	
     /**
-     * Initializes an empty indexed priority queue with indices between {@code 0} to {@code N-1}
+     * Initializes an isEmpty indexed priority queue with indices between {@code 0} to {@code N-1}
      * Worst case is O(n)
      * @param N number of keys in the priority queue, index from {@code 0} to {@code N-1}
      * @param comparator a Comparator over the keys
@@ -75,9 +75,9 @@ public class IndexBinomialMinPQ<Key> implements Iterable<Integer> {
 	}
 
 	/**
-	 * Whether the priority queue is empty
+	 * Whether the priority queue is isEmpty
 	 * Worst case is O(1)
-	 * @return true if the priority queue is empty, false if not
+	 * @return true if the priority queue is isEmpty, false if not
 	 */
 	public boolean isEmpty() {
 		return head == null;
@@ -134,12 +134,12 @@ public class IndexBinomialMinPQ<Key> implements Iterable<Integer> {
 	/**
 	 * Gets the index associated with the minimum key
 	 * Worst case is O(log(n))
-	 * @throws java.util.NoSuchElementException if the priority queue is empty
+	 * @throws java.util.NoSuchElementException if the priority queue is isEmpty
 	 * @return the index associated with the minimum key
 	 */
 	
 	public int minIndex() {
-		if (isEmpty()) throw new NoSuchElementException("Priority queue is empty");
+		if (isEmpty()) throw new NoSuchElementException("Priority queue is isEmpty");
 		Node<Key> min = head;
 		Node<Key> current = head;
 		while (current.sibling != null) {
@@ -152,12 +152,12 @@ public class IndexBinomialMinPQ<Key> implements Iterable<Integer> {
 	/**
 	 * Gets the minimum key currently in the queue
 	 * Worst case is O(log(n))
-	 * @throws java.util.NoSuchElementException if the priority queue is empty
+	 * @throws java.util.NoSuchElementException if the priority queue is isEmpty
 	 * @return the minimum key currently in the priority queue
 	 */
 	
 	public Key minKey() {
-		if (isEmpty()) throw new NoSuchElementException("Priority queue is empty");
+		if (isEmpty()) throw new NoSuchElementException("Priority queue is isEmpty");
 		Node<Key> min = head;
 		Node<Key> current = head;
 		while (current.sibling != null) {
@@ -170,12 +170,12 @@ public class IndexBinomialMinPQ<Key> implements Iterable<Integer> {
 	/**
 	 * Deletes the minimum key
 	 * Worst case is O(log(n))
-	 * @throws java.util.NoSuchElementException if the priority queue is empty
+	 * @throws java.util.NoSuchElementException if the priority queue is isEmpty
 	 * @return the index associated with the minimum key
 	 */
 	
 	public int delMin() {
-		if(isEmpty()) throw new NoSuchElementException("Priority queue is empty");
+		if(isEmpty()) throw new NoSuchElementException("Priority queue is isEmpty");
 		Node<Key> min = eraseMin();
 		Node<Key> x = (min.child == null) ? min : min.child;
 		if (min.child != null) {
@@ -429,7 +429,7 @@ public class IndexBinomialMinPQ<Key> implements Iterable<Integer> {
 	 * Constructor
 	 *****************************************************************/
 	
-	//Creates an empty heap
+	//Creates an isEmpty heap
 	//The comparator is instanciated because it needs to,
 	//but won't be used by any heap created by this constructor
 	private IndexBinomialMinPQ() { comparator = null; }

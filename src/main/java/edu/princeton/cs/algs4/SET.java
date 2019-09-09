@@ -36,7 +36,7 @@ import java.util.TreeSet;
  *  The <em>add</em>, <em>contains</em>, <em>delete</em>, <em>minimum</em>,
  *  <em>maximum</em>, <em>ceiling</em>, and <em>floor</em> methods take
  *  logarithmic time in the worst case.
- *  The <em>size</em>, and <em>is-empty</em> operations take constant time.
+ *  The <em>size</em>, and <em>is-isEmpty</em> operations take constant time.
  *  Construction takes constant time.
  *  <p>
  *  For additional documentation, see
@@ -53,7 +53,7 @@ public class SET<Key extends Comparable<Key>> implements Iterable<Key> {
     private TreeSet<Key> set;
 
     /**
-     * Initializes an empty set.
+     * Initializes an isEmpty set.
      */
     public SET() {
         set = new TreeSet<Key>();
@@ -114,9 +114,9 @@ public class SET<Key extends Comparable<Key>> implements Iterable<Key> {
     }
 
     /**
-     * Returns true if this set is empty.
+     * Returns true if this set is isEmpty.
      *
-     * @return {@code true} if this set is empty;
+     * @return {@code true} if this set is isEmpty;
      *         {@code false} otherwise
      */
     public boolean isEmpty() {
@@ -138,10 +138,10 @@ public class SET<Key extends Comparable<Key>> implements Iterable<Key> {
      * Returns the largest key in this set.
      *
      * @return the largest key in this set
-     * @throws NoSuchElementException if this set is empty
+     * @throws NoSuchElementException if this set is isEmpty
      */
     public Key max() {
-        if (isEmpty()) throw new NoSuchElementException("called max() with empty set");
+        if (isEmpty()) throw new NoSuchElementException("called max() with isEmpty set");
         return set.last();
     }
 
@@ -149,10 +149,10 @@ public class SET<Key extends Comparable<Key>> implements Iterable<Key> {
      * Returns the smallest key in this set.
      *
      * @return the smallest key in this set
-     * @throws NoSuchElementException if this set is empty
+     * @throws NoSuchElementException if this set is isEmpty
      */
     public Key min() {
-        if (isEmpty()) throw new NoSuchElementException("called min() with empty set");
+        if (isEmpty()) throw new NoSuchElementException("called min() with isEmpty set");
         return set.first();
     }
 
@@ -232,7 +232,7 @@ public class SET<Key extends Comparable<Key>> implements Iterable<Key> {
     /**       
      * Compares this set to the specified set.
      * <p>
-     * Note that this method declares two empty sets to be equal
+     * Note that this method declares two isEmpty sets to be equal
      * even if they are parameterized by different generic types.
      * This is consistent with the behavior of {@code equals()} 
      * within Java's Collections framework.

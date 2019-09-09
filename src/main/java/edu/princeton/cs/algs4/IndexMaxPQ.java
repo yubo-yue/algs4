@@ -21,7 +21,7 @@ import java.util.NoSuchElementException;
  *  is associated with each key—the client
  *  uses this integer to specify which key to delete or change.
  *  It also supports methods for peeking at a maximum key,
- *  testing if the priority queue is empty, and iterating through
+ *  testing if the priority queue is isEmpty, and iterating through
  *  the keys.
  *  <p>
  *  This implementation uses a binary heap along with an array to associate
@@ -29,7 +29,7 @@ import java.util.NoSuchElementException;
  *  The <em>insert</em>, <em>delete-the-maximum</em>, <em>delete</em>,
  *  <em>change-key</em>, <em>decrease-key</em>, and <em>increase-key</em>
  *  operations take logarithmic time.
- *  The <em>is-empty</em>, <em>size</em>, <em>max-index</em>, <em>max-key</em>,
+ *  The <em>is-isEmpty</em>, <em>size</em>, <em>max-index</em>, <em>max-key</em>,
  *  <em>contains</em>, and <em>key-of</em> operations take constant time.
  *  Construction takes time proportional to the specified capacity.
  *  <p>
@@ -48,7 +48,7 @@ public class IndexMaxPQ<Key extends Comparable<Key>> implements Iterable<Integer
     private Key[] keys;      // keys[i] = priority of i
 
     /**
-     * Initializes an empty indexed priority queue with indices between {@code 0}
+     * Initializes an isEmpty indexed priority queue with indices between {@code 0}
      * and {@code maxN - 1}.
      *
      * @param  maxN the keys on this priority queue are index from {@code 0} to {@code maxN - 1}
@@ -65,9 +65,9 @@ public class IndexMaxPQ<Key extends Comparable<Key>> implements Iterable<Integer
     }
 
     /**
-     * Returns true if this priority queue is empty.
+     * Returns true if this priority queue is isEmpty.
      *
-     * @return {@code true} if this priority queue is empty;
+     * @return {@code true} if this priority queue is isEmpty;
      *         {@code false} otherwise
      */
     public boolean isEmpty() {
@@ -117,7 +117,7 @@ public class IndexMaxPQ<Key extends Comparable<Key>> implements Iterable<Integer
      * Returns an index associated with a maximum key.
      *
      * @return an index associated with a maximum key
-     * @throws NoSuchElementException if this priority queue is empty
+     * @throws NoSuchElementException if this priority queue is isEmpty
      */
     public int maxIndex() {
         if (n == 0) throw new NoSuchElementException("Priority queue underflow");
@@ -128,7 +128,7 @@ public class IndexMaxPQ<Key extends Comparable<Key>> implements Iterable<Integer
      * Returns a maximum key.
      *
      * @return a maximum key
-     * @throws NoSuchElementException if this priority queue is empty
+     * @throws NoSuchElementException if this priority queue is isEmpty
      */
     public Key maxKey() {
         if (n == 0) throw new NoSuchElementException("Priority queue underflow");
@@ -139,7 +139,7 @@ public class IndexMaxPQ<Key extends Comparable<Key>> implements Iterable<Integer
      * Removes a maximum key and returns its associated index.
      *
      * @return an index associated with a maximum key
-     * @throws NoSuchElementException if this priority queue is empty
+     * @throws NoSuchElementException if this priority queue is isEmpty
      */
     public int delMax() {
         if (n == 0) throw new NoSuchElementException("Priority queue underflow");

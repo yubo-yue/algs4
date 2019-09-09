@@ -213,9 +213,9 @@ public class DirectedEulerianCycle {
         Digraph G2 = DigraphGenerator.eulerianPath(V, E);
         unitTest(G2, "Eulerian path");
 
-        // empty digraph
+        // isEmpty digraph
         Digraph G3 = new Digraph(V);
-        unitTest(G3, "empty digraph");
+        unitTest(G3, "isEmpty digraph");
 
         // self loop
         Digraph G4 = new Digraph(V);

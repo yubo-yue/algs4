@@ -19,7 +19,7 @@ package edu.princeton.cs.algs4;
  *  The {@code BTree} class represents an ordered symbol table of generic
  *  key-value pairs.
  *  It supports the <em>put</em>, <em>get</em>, <em>contains</em>,
- *  <em>size</em>, and <em>is-empty</em> methods.
+ *  <em>size</em>, and <em>is-isEmpty</em> methods.
  *  A symbol table implements the <em>associative array</em> abstraction:
  *  when associating a value with a key that is already in the symbol table,
  *  the convention is to replace the old value with the new value.
@@ -36,7 +36,7 @@ package edu.princeton.cs.algs4;
  *  each make log<sub><em>m</em></sub>(<em>n</em>) probes in the worst case,
  *  where <em>n</em> is the number of key-value pairs
  *  and <em>m</em> is the branching factor.
- *  The <em>size</em>, and <em>is-empty</em> operations take constant time.
+ *  The <em>size</em>, and <em>is-isEmpty</em> operations take constant time.
  *  Construction takes constant time.
  *  <p>
  *  For additional documentation, see
@@ -77,15 +77,15 @@ public class BTree<Key extends Comparable<Key>, Value>  {
     }
 
     /**
-     * Initializes an empty B-tree.
+     * Initializes an isEmpty B-tree.
      */
     public BTree() {
         root = new Node(0);
     }
  
     /**
-     * Returns true if this symbol table is empty.
-     * @return {@code true} if this symbol table is empty; {@code false} otherwise
+     * Returns true if this symbol table is isEmpty.
+     * @return {@code true} if this symbol table is isEmpty; {@code false} otherwise
      */
     public boolean isEmpty() {
         return size() == 0;

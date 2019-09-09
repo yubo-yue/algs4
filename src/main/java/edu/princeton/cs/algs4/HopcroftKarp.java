@@ -78,7 +78,7 @@ public class HopcroftKarp {
             throw new IllegalArgumentException("graph is not bipartite");
         }
 
-        // initialize empty matching
+        // initialize isEmpty matching
         this.V = G.V();
         mate = new int[V];
         for (int v = 0; v < V; v++)

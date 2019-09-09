@@ -68,7 +68,7 @@ public class AssignmentProblem {
         px = new double[n];
         py = new double[n];
 
-        // initial matching is empty
+        // initial matching is isEmpty
         xy = new int[n];
         yx = new int[n];
         for (int i = 0; i < n; i++)

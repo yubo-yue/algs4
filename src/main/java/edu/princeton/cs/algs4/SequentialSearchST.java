@@ -30,7 +30,7 @@ package edu.princeton.cs.algs4;
  *  The {@code SequentialSearchST} class represents an (unordered)
  *  symbol table of generic key-value pairs.
  *  It supports the usual <em>put</em>, <em>get</em>, <em>contains</em>,
- *  <em>delete</em>, <em>size</em>, and <em>is-empty</em> methods.
+ *  <em>delete</em>, <em>size</em>, and <em>is-isEmpty</em> methods.
  *  It also provides a <em>keys</em> method for iterating over all of the keys.
  *  A symbol table implements the <em>associative array</em> abstraction:
  *  when associating a value with a key that is already in the symbol table,
@@ -45,7 +45,7 @@ package edu.princeton.cs.algs4;
  *  {@code hashCode()} method. 
  *  The <em>put</em> and <em>delete</em> operations take linear time; the
  *  <em>get</em> and <em>contains</em> operations takes linear time in the worst case.
- *  The <em>size</em>, and <em>is-empty</em> operations take constant time.
+ *  The <em>size</em>, and <em>is-isEmpty</em> operations take constant time.
  *  Construction takes constant time.
  *  <p>
  *  For additional documentation, see <a href="https://algs4.cs.princeton.edu/31elementary">Section 3.1</a> of
@@ -72,7 +72,7 @@ public class SequentialSearchST<Key, Value> {
     }
 
     /**
-     * Initializes an empty symbol table.
+     * Initializes an isEmpty symbol table.
      */
     public SequentialSearchST() {
     }
@@ -87,9 +87,9 @@ public class SequentialSearchST<Key, Value> {
     }
 
     /**
-     * Returns true if this symbol table is empty.
+     * Returns true if this symbol table is isEmpty.
      *
-     * @return {@code true} if this symbol table is empty;
+     * @return {@code true} if this symbol table is isEmpty;
      *         {@code false} otherwise
      */
     public boolean isEmpty() {

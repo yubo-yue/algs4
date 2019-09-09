@@ -225,11 +225,11 @@ public final class In {
     ////  with all methods changed from "public" to "public static".
 
    /**
-     * Returns true if input stream is empty (except possibly whitespace).
+     * Returns true if input stream is isEmpty (except possibly whitespace).
      * Use this to know whether the next call to {@link #readString()}, 
      * {@link #readDouble()}, etc will succeed.
      *
-     * @return {@code true} if this input stream is empty (except possibly whitespace);
+     * @return {@code true} if this input stream is isEmpty (except possibly whitespace);
      *         {@code false} otherwise
      */
     public boolean isEmpty() {
@@ -285,7 +285,7 @@ public final class In {
      * Reads and returns the next character in this input stream.
      *
      * @return the next {@code char} in this input stream
-     * @throws NoSuchElementException if the input stream is empty
+     * @throws NoSuchElementException if the input stream is isEmpty
      */
     public char readChar() {
         scanner.useDelimiter(EMPTY_PATTERN);
@@ -313,7 +313,7 @@ public final class In {
             return "";
 
         String result = scanner.useDelimiter(EVERYTHING_PATTERN).next();
-        // not that important to reset delimeter, since now scanner is empty
+        // not that important to reset delimeter, since now scanner is isEmpty
         scanner.useDelimiter(WHITESPACE_PATTERN); // but let's do it anyway
         return result;
     }
@@ -323,7 +323,7 @@ public final class In {
      * Reads the next token from this input stream and returns it as a {@code String}.
      *
      * @return the next {@code String} in this input stream
-     * @throws NoSuchElementException if the input stream is empty
+     * @throws NoSuchElementException if the input stream is isEmpty
      */
     public String readString() {
         try {
@@ -340,7 +340,7 @@ public final class In {
      * and returns the {@code int}.
      *
      * @return the next {@code int} in this input stream
-     * @throws NoSuchElementException if the input stream is empty
+     * @throws NoSuchElementException if the input stream is isEmpty
      * @throws InputMismatchException if the next token cannot be parsed as an {@code int}
      */
     public int readInt() {
@@ -363,7 +363,7 @@ public final class In {
      * and returns the {@code double}.
      *
      * @return the next {@code double} in this input stream
-     * @throws NoSuchElementException if the input stream is empty
+     * @throws NoSuchElementException if the input stream is isEmpty
      * @throws InputMismatchException if the next token cannot be parsed as a {@code double}
      */
     public double readDouble() {
@@ -386,7 +386,7 @@ public final class In {
      * and returns the {@code float}.
      *
      * @return the next {@code float} in this input stream
-     * @throws NoSuchElementException if the input stream is empty
+     * @throws NoSuchElementException if the input stream is isEmpty
      * @throws InputMismatchException if the next token cannot be parsed as a {@code float}
      */
     public float readFloat() {
@@ -409,7 +409,7 @@ public final class In {
      * and returns the {@code long}.
      *
      * @return the next {@code long} in this input stream
-     * @throws NoSuchElementException if the input stream is empty
+     * @throws NoSuchElementException if the input stream is isEmpty
      * @throws InputMismatchException if the next token cannot be parsed as a {@code long}
      */
     public long readLong() {
@@ -432,7 +432,7 @@ public final class In {
      * and returns the {@code short}.
      *
      * @return the next {@code short} in this input stream
-     * @throws NoSuchElementException if the input stream is empty
+     * @throws NoSuchElementException if the input stream is isEmpty
      * @throws InputMismatchException if the next token cannot be parsed as a {@code short}
      */
     public short readShort() {
@@ -457,7 +457,7 @@ public final class In {
      * To read binary data, use {@link BinaryIn}.
      *
      * @return the next {@code byte} in this input stream
-     * @throws NoSuchElementException if the input stream is empty
+     * @throws NoSuchElementException if the input stream is isEmpty
      * @throws InputMismatchException if the next token cannot be parsed as a {@code byte}
      */
     public byte readByte() {
@@ -481,7 +481,7 @@ public final class In {
      * and either {@code "false"} or {@code "0"} as {@code false}).
      *
      * @return the next {@code boolean} in this input stream
-     * @throws NoSuchElementException if the input stream is empty
+     * @throws NoSuchElementException if the input stream is isEmpty
      * @throws InputMismatchException if the next token cannot be parsed as a {@code boolean}
      */
     public boolean readBoolean() {

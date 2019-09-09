@@ -63,7 +63,7 @@ public class Bag<Item> implements Iterable<Item> {
     }
 
     /**
-     * Initializes an empty bag.
+     * Initializes an isEmpty bag.
      */
     public Bag() {
         first = null;
@@ -71,9 +71,9 @@ public class Bag<Item> implements Iterable<Item> {
     }
 
     /**
-     * Returns true if this bag is empty.
+     * Returns true if this bag is isEmpty.
      *
-     * @return {@code true} if this bag is empty;
+     * @return {@code true} if this bag is isEmpty;
      *         {@code false} otherwise
      */
     public boolean isEmpty() {

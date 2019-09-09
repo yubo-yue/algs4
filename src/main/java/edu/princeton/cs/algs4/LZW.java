@@ -79,7 +79,7 @@ public class LZW {
         st[i++] = "";                        // (unused) lookahead for EOF
 
         int codeword = BinaryStdIn.readInt(W);
-        if (codeword == R) return;           // expanded message is empty string
+        if (codeword == R) return;           // expanded message is isEmpty string
         String val = st[codeword];
 
         while (true) {

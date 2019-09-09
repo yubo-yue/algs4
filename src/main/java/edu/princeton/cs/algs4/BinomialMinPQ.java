@@ -17,7 +17,7 @@ import java.util.NoSuchElementException;
  *  It supports the usual insert and delete-the-minimum operations, 
  *  along with the merging of two heaps together.
  *  It also supports methods for peeking at the minimum key,
- *  testing if the priority queue is empty, and iterating through
+ *  testing if the priority queue is isEmpty, and iterating through
  *  the keys.
  *  It is possible to build the priority queue using a Comparator.
  *  If not, the natural order relation between the keys will be used.
@@ -25,7 +25,7 @@ import java.util.NoSuchElementException;
  *  This implementation uses a binomial heap.
  *  The insert, delete-the-minimum, union, min-key
  *  and size operations take logarithmic time.
- *  The is-empty and constructor operations take constant time.
+ *  The is-isEmpty and constructor operations take constant time.
  * 
  *  @author Tristan Claverie
  */
@@ -41,7 +41,7 @@ public class BinomialMinPQ<Key> implements Iterable<Key> {
 	}
 	
 	/**
-	 * Initializes an empty priority queue
+	 * Initializes an isEmpty priority queue
 	 * Worst case is O(1)
 	 */
 	public BinomialMinPQ() {
@@ -49,7 +49,7 @@ public class BinomialMinPQ<Key> implements Iterable<Key> {
 	}
 	
 	/**
-	 * Initializes an empty priority queue using the given Comparator
+	 * Initializes an isEmpty priority queue using the given Comparator
 	 * Worst case is O(1)
 	 * @param C a comparator over the keys
 	 */
@@ -79,9 +79,9 @@ public class BinomialMinPQ<Key> implements Iterable<Key> {
 	}
 
 	/**
-	 * Whether the priority queue is empty
+	 * Whether the priority queue is isEmpty
 	 * Worst case is O(1)
-	 * @return true if the priority queue is empty, false if not
+	 * @return true if the priority queue is isEmpty, false if not
 	 */
 	public boolean isEmpty() {
 		return head == null;
@@ -120,11 +120,11 @@ public class BinomialMinPQ<Key> implements Iterable<Key> {
 	/**
 	 * Get the minimum key currently in the queue
 	 * Worst case is O(log(n))
-	 * @throws java.util.NoSuchElementException if the priority queue is empty
+	 * @throws java.util.NoSuchElementException if the priority queue is isEmpty
 	 * @return the minimum key currently in the priority queue
 	 */
 	public Key minKey() {
-		if (isEmpty()) throw new NoSuchElementException("Priority queue is empty");
+		if (isEmpty()) throw new NoSuchElementException("Priority queue is isEmpty");
 		Node min = head;
 		Node current = head;
 		while (current.sibling != null) {
@@ -137,11 +137,11 @@ public class BinomialMinPQ<Key> implements Iterable<Key> {
 	/**
 	 * Deletes the minimum key
 	 * Worst case is O(log(n))
-	 * @throws java.util.NoSuchElementException if the priority queue is empty
+	 * @throws java.util.NoSuchElementException if the priority queue is isEmpty
 	 * @return the minimum key
 	 */
 	public Key delMin() {
-		if(isEmpty()) throw new NoSuchElementException("Priority queue is empty");
+		if(isEmpty()) throw new NoSuchElementException("Priority queue is isEmpty");
 		Node min = eraseMin();
 		Node x = (min.child == null) ? min : min.child;
 		if (min.child != null) {

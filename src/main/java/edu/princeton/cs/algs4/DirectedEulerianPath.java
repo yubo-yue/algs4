@@ -237,9 +237,9 @@ public class DirectedEulerianPath {
         G5.addEdge(StdRandom.uniform(V), StdRandom.uniform(V));
         unitTest(G5, "single edge");
 
-        // empty digraph
+        // isEmpty digraph
         Digraph G6 = new Digraph(V);
-        unitTest(G6, "empty digraph");
+        unitTest(G6, "isEmpty digraph");
 
         // random digraph
         Digraph G7 = DigraphGenerator.simple(V, E);

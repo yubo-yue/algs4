@@ -16,7 +16,7 @@ import java.util.NoSuchElementException;
  *  The MultiwayMinPQ class represents a priority queue of generic keys.
  *  It supports the usual insert and delete-the-minimum operations.
  *  It also supports methods for peeking at the minimum key,
- *  testing if the priority queue is empty, and iterating through
+ *  testing if the priority queue is isEmpty, and iterating through
  *  the keys.
  *  It is possible to build the priority queue using a Comparator.
  *  If not, the natural order relation between the keys will be used.
@@ -25,7 +25,7 @@ import java.util.NoSuchElementException;
  *  For simplified notations, logarithm in base d will be referred as log-d
  *  The delete-the-minimum operation takes time proportional to d*log-d(n)
  *  The insert takes time proportional to log-d(n)
- *  The is-empty, min-key and size operations take constant time.
+ *  The is-isEmpty, min-key and size operations take constant time.
  *  Constructor takes time proportional to the specified capacity.
  *
  *  @author Tristan Claverie
@@ -39,7 +39,7 @@ public class MultiwayMinPQ<Key> implements Iterable<Key> {
 	
 	
     /**
-     * Initializes an empty priority queue
+     * Initializes an isEmpty priority queue
      * Worst case is O(d)
      *
      * @param  d dimension of the heap
@@ -54,7 +54,7 @@ public class MultiwayMinPQ<Key> implements Iterable<Key> {
 	}
 	
     /**
-     * Initializes an empty priority queue
+     * Initializes an isEmpty priority queue
      * Worst case is O(d)
      *
      * @param  d dimension of the heap
@@ -105,9 +105,9 @@ public class MultiwayMinPQ<Key> implements Iterable<Key> {
 	}
 
         /**
-	 * Whether the priority queue is empty
+	 * Whether the priority queue is isEmpty
 	 * Worst case is O(1)
-	 * @return true if the priority queue is empty, false if not
+	 * @return true if the priority queue is isEmpty, false if not
 	 */
 	public boolean isEmpty() {
 		return n == 0;
@@ -139,22 +139,22 @@ public class MultiwayMinPQ<Key> implements Iterable<Key> {
 	/**
 	 * Gets the minimum key currently in the queue
 	 * Worst case is O(1)
-	 * @throws java.util.NoSuchElementException if the priority queue is empty
+	 * @throws java.util.NoSuchElementException if the priority queue is isEmpty
 	 * @return the minimum key currently in the priority queue
 	 */
 	public Key minKey() {
-		if (isEmpty()) throw new NoSuchElementException("Priority queue is empty");
+		if (isEmpty()) throw new NoSuchElementException("Priority queue is isEmpty");
 		return keys[d];
 	}
 
 	/**
 	 * Deletes the minimum key
 	 * Worst case is O(d*log-d(n))
-	 * @throws java.util.NoSuchElementException if the priority queue is empty
+	 * @throws java.util.NoSuchElementException if the priority queue is isEmpty
 	 * @return the minimum key
 	 */
 	public Key delMin() {
-		if (isEmpty()) throw new NoSuchElementException("Priority queue is empty");
+		if (isEmpty()) throw new NoSuchElementException("Priority queue is isEmpty");
 		exch(0, --n);
 		sink(0);
 		Key min = keys[n+d];
@@ -236,7 +236,7 @@ public class MultiwayMinPQ<Key> implements Iterable<Key> {
 	
 	//Resizes the array containing the keys
 	//If the heap is full, it adds one floor
-	//If the heap has two floors empty, it removes one
+	//If the heap has two floors isEmpty, it removes one
 	private void resize(int N) {
 		Key[] array = (Key[]) new Comparable[N];
 		for (int i = 0; i < Math.min(keys.length, array.length); i++) {

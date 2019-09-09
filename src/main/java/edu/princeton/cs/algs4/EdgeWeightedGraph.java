@@ -57,7 +57,7 @@ public class EdgeWeightedGraph {
     private Bag<Edge>[] adj;
     
     /**
-     * Initializes an empty edge-weighted graph with {@code V} vertices and 0 edges.
+     * Initializes an isEmpty edge-weighted graph with {@code V} vertices and 0 edges.
      *
      * @param  V the number of vertices
      * @throws IllegalArgumentException if {@code V < 0}

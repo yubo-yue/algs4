@@ -31,7 +31,7 @@ import java.util.NoSuchElementException;
  *  The {@code BST} class represents an ordered symbol table of generic
  *  key-value pairs.
  *  It supports the usual <em>put</em>, <em>get</em>, <em>contains</em>,
- *  <em>delete</em>, <em>size</em>, and <em>is-empty</em> methods.
+ *  <em>delete</em>, <em>size</em>, and <em>is-isEmpty</em> methods.
  *  It also provides ordered methods for finding the <em>minimum</em>,
  *  <em>maximum</em>, <em>floor</em>, <em>select</em>, and <em>ceiling</em>.
  *  It also provides a <em>keys</em> method for iterating over all of the keys.
@@ -50,7 +50,7 @@ import java.util.NoSuchElementException;
  *  The <em>put</em> and <em>remove</em> operations each take linear time in
  *  the worst case; the <em>contains</em>, <em>ceiling</em>, <em>floor</em>,
  *  and <em>rank</em> operations take logarithmic time; the <em>size</em>,
- *  <em>is-empty</em>, <em>minimum</em>, <em>maximum</em>, and <em>select</em>
+ *  <em>is-isEmpty</em>, <em>minimum</em>, <em>maximum</em>, and <em>select</em>
  *  operations take constant time. Construction takes constant time.
  *  <p>
  *  For additional documentation, see <a href="https://algs4.cs.princeton.edu/31elementary">Section 3.1</a> of
@@ -67,14 +67,14 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
     private int n = 0;
 
     /**
-     * Initializes an empty symbol table.
+     * Initializes an isEmpty symbol table.
      */
     public BinarySearchST() {
         this(INIT_CAPACITY);
     }
 
     /**
-     * Initializes an empty symbol table with the specified initial capacity.
+     * Initializes an isEmpty symbol table with the specified initial capacity.
      * @param capacity the maximum capacity
      */
     public BinarySearchST(int capacity) { 
@@ -105,9 +105,9 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
     }
 
     /**
-     * Returns true if this symbol table is empty.
+     * Returns true if this symbol table is isEmpty.
      *
-     * @return {@code true} if this symbol table is empty;
+     * @return {@code true} if this symbol table is isEmpty;
      *         {@code false} otherwise
      */
     public boolean isEmpty() {
@@ -244,7 +244,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
     /**
      * Removes the smallest key and associated value from this symbol table.
      *
-     * @throws NoSuchElementException if the symbol table is empty
+     * @throws NoSuchElementException if the symbol table is isEmpty
      */
     public void deleteMin() {
         if (isEmpty()) throw new NoSuchElementException("Symbol table underflow error");
@@ -254,7 +254,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
     /**
      * Removes the largest key and associated value from this symbol table.
      *
-     * @throws NoSuchElementException if the symbol table is empty
+     * @throws NoSuchElementException if the symbol table is isEmpty
      */
     public void deleteMax() {
         if (isEmpty()) throw new NoSuchElementException("Symbol table underflow error");
@@ -270,10 +270,10 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
      * Returns the smallest key in this symbol table.
      *
      * @return the smallest key in this symbol table
-     * @throws NoSuchElementException if this symbol table is empty
+     * @throws NoSuchElementException if this symbol table is isEmpty
      */
     public Key min() {
-        if (isEmpty()) throw new NoSuchElementException("called min() with empty symbol table");
+        if (isEmpty()) throw new NoSuchElementException("called min() with isEmpty symbol table");
         return keys[0]; 
     }
 
@@ -281,10 +281,10 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
      * Returns the largest key in this symbol table.
      *
      * @return the largest key in this symbol table
-     * @throws NoSuchElementException if this symbol table is empty
+     * @throws NoSuchElementException if this symbol table is isEmpty
      */
     public Key max() {
-        if (isEmpty()) throw new NoSuchElementException("called max() with empty symbol table");
+        if (isEmpty()) throw new NoSuchElementException("called max() with isEmpty symbol table");
         return keys[n-1];
     }
 

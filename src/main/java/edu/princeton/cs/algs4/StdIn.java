@@ -187,7 +187,7 @@ import java.util.regex.Pattern;
  *  Windows, and Linux.
  *  The methods in {@code StdIn} are <em>blocking</em>, which means that they
  *  will wait until you enter input on standard input.
- *  If your program has a loop that repeats until standard input is empty,
+ *  If your program has a loop that repeats until standard input is isEmpty,
  *  you must signal that the input is finished.
  *  To do so, depending on your operating system and IDE, 
  *  use either {@code <Ctrl-d>} or {@code <Ctrl-z>}, on its own line.
@@ -241,11 +241,11 @@ public final class StdIn {
     //// with all methods changed from "public" to "public static"
 
    /**
-     * Returns true if standard input is empty (except possibly for whitespace).
+     * Returns true if standard input is isEmpty (except possibly for whitespace).
      * Use this method to know whether the next call to {@link #readString()}, 
      * {@link #readDouble()}, etc will succeed.
      *
-     * @return {@code true} if standard input is empty (except possibly
+     * @return {@code true} if standard input is isEmpty (except possibly
      *         for whitespace); {@code false} otherwise
      */
     public static boolean isEmpty() {
@@ -302,7 +302,7 @@ public final class StdIn {
      * Reads and returns the next character.
      *
      * @return the next {@code char}
-     * @throws NoSuchElementException if standard input is empty
+     * @throws NoSuchElementException if standard input is isEmpty
      */
     public static char readChar() {
         try {
@@ -324,14 +324,14 @@ public final class StdIn {
      * Reads and returns the remainder of the input, as a string.
      *
      * @return the remainder of the input, as a string
-     * @throws NoSuchElementException if standard input is empty
+     * @throws NoSuchElementException if standard input is isEmpty
      */
     public static String readAll() {
         if (!scanner.hasNextLine())
             return "";
 
         String result = scanner.useDelimiter(EVERYTHING_PATTERN).next();
-        // not that important to reset delimeter, since now scanner is empty
+        // not that important to reset delimeter, since now scanner is isEmpty
         scanner.useDelimiter(WHITESPACE_PATTERN); // but let's do it anyway
         return result;
     }
@@ -341,7 +341,7 @@ public final class StdIn {
      * Reads the next token  and returns the {@code String}.
      *
      * @return the next {@code String}
-     * @throws NoSuchElementException if standard input is empty
+     * @throws NoSuchElementException if standard input is isEmpty
      */
     public static String readString() {
         try {
@@ -357,7 +357,7 @@ public final class StdIn {
      * Reads the next token from standard input, parses it as an integer, and returns the integer.
      *
      * @return the next integer on standard input
-     * @throws NoSuchElementException if standard input is empty
+     * @throws NoSuchElementException if standard input is isEmpty
      * @throws InputMismatchException if the next token cannot be parsed as an {@code int}
      */
     public static int readInt() {
@@ -380,7 +380,7 @@ public final class StdIn {
      * Reads the next token from standard input, parses it as a double, and returns the double.
      *
      * @return the next double on standard input
-     * @throws NoSuchElementException if standard input is empty
+     * @throws NoSuchElementException if standard input is isEmpty
      * @throws InputMismatchException if the next token cannot be parsed as a {@code double}
      */
     public static double readDouble() {
@@ -402,7 +402,7 @@ public final class StdIn {
      * Reads the next token from standard input, parses it as a float, and returns the float.
      *
      * @return the next float on standard input
-     * @throws NoSuchElementException if standard input is empty
+     * @throws NoSuchElementException if standard input is isEmpty
      * @throws InputMismatchException if the next token cannot be parsed as a {@code float}
      */
     public static float readFloat() {
@@ -424,7 +424,7 @@ public final class StdIn {
      * Reads the next token from standard input, parses it as a long integer, and returns the long integer.
      *
      * @return the next long integer on standard input
-     * @throws NoSuchElementException if standard input is empty
+     * @throws NoSuchElementException if standard input is isEmpty
      * @throws InputMismatchException if the next token cannot be parsed as a {@code long}
      */
     public static long readLong() {
@@ -446,7 +446,7 @@ public final class StdIn {
      * Reads the next token from standard input, parses it as a short integer, and returns the short integer.
      *
      * @return the next short integer on standard input
-     * @throws NoSuchElementException if standard input is empty
+     * @throws NoSuchElementException if standard input is isEmpty
      * @throws InputMismatchException if the next token cannot be parsed as a {@code short}
      */
     public static short readShort() {
@@ -468,7 +468,7 @@ public final class StdIn {
      * Reads the next token from standard input, parses it as a byte, and returns the byte.
      *
      * @return the next byte on standard input
-     * @throws NoSuchElementException if standard input is empty
+     * @throws NoSuchElementException if standard input is isEmpty
      * @throws InputMismatchException if the next token cannot be parsed as a {@code byte}
      */
     public static byte readByte() {
@@ -491,7 +491,7 @@ public final class StdIn {
      * and returns the boolean.
      *
      * @return the next boolean on standard input
-     * @throws NoSuchElementException if standard input is empty
+     * @throws NoSuchElementException if standard input is isEmpty
      * @throws InputMismatchException if the next token cannot be parsed as a {@code boolean}:
      *    {@code true} or {@code 1} for true, and {@code false} or {@code 0} for false,
      *    ignoring case

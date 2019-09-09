@@ -23,13 +23,13 @@ import java.util.NoSuchElementException;
  *  The {@code ResizingArrayStack} class represents a last-in-first-out (LIFO) stack
  *  of generic items.
  *  It supports the usual <em>push</em> and <em>pop</em> operations, along with methods
- *  for peeking at the top item, testing if the stack is empty, and iterating through
+ *  for peeking at the top item, testing if the stack is isEmpty, and iterating through
  *  the items in LIFO order.
  *  <p>
  *  This implementation uses a resizing array, which double the underlying array
  *  when it is full and halves the underlying array when it is one-quarter full.
  *  The <em>push</em> and <em>pop</em> operations take constant amortized time.
- *  The <em>size</em>, <em>peek</em>, and <em>is-empty</em> operations takes
+ *  The <em>size</em>, <em>peek</em>, and <em>is-isEmpty</em> operations takes
  *  constant time in the worst case. 
  *  <p>
  *  For additional documentation,
@@ -45,7 +45,7 @@ public class ResizingArrayStack<Item> implements Iterable<Item> {
 
 
     /**
-     * Initializes an empty stack.
+     * Initializes an isEmpty stack.
      */
     public ResizingArrayStack() {
         a = (Item[]) new Object[2];
@@ -53,8 +53,8 @@ public class ResizingArrayStack<Item> implements Iterable<Item> {
     }
 
     /**
-     * Is this stack empty?
-     * @return true if this stack is empty; false otherwise
+     * Is this stack isEmpty?
+     * @return true if this stack is isEmpty; false otherwise
      */
     public boolean isEmpty() {
         return n == 0;
@@ -98,7 +98,7 @@ public class ResizingArrayStack<Item> implements Iterable<Item> {
     /**
      * Removes and returns the item most recently added to this stack.
      * @return the item most recently added
-     * @throws java.util.NoSuchElementException if this stack is empty
+     * @throws java.util.NoSuchElementException if this stack is isEmpty
      */
     public Item pop() {
         if (isEmpty()) throw new NoSuchElementException("Stack underflow");
@@ -114,7 +114,7 @@ public class ResizingArrayStack<Item> implements Iterable<Item> {
     /**
      * Returns (but does not remove) the item most recently added to this stack.
      * @return the item most recently added to this stack
-     * @throws java.util.NoSuchElementException if this stack is empty
+     * @throws java.util.NoSuchElementException if this stack is isEmpty
      */
     public Item peek() {
         if (isEmpty()) throw new NoSuchElementException("Stack underflow");

@@ -31,7 +31,7 @@ import java.util.NoSuchElementException;
  *  The {@code BST} class represents an ordered symbol table of generic
  *  key-value pairs.
  *  It supports the usual <em>put</em>, <em>get</em>, <em>contains</em>,
- *  <em>delete</em>, <em>size</em>, and <em>is-empty</em> methods.
+ *  <em>delete</em>, <em>size</em>, and <em>is-isEmpty</em> methods.
  *  It also provides ordered methods for finding the <em>minimum</em>,
  *  <em>maximum</em>, <em>floor</em>, <em>select</em>, <em>ceiling</em>.
  *  It also provides a <em>keys</em> method for iterating over all of the keys.
@@ -51,7 +51,7 @@ import java.util.NoSuchElementException;
  *  <em>maximum</em>, <em>ceiling</em>, <em>floor</em>, <em>select</em>, and
  *  <em>rank</em>  operations each take
  *  linear time in the worst case, if the tree becomes unbalanced.
- *  The <em>size</em>, and <em>is-empty</em> operations take constant time.
+ *  The <em>size</em>, and <em>is-isEmpty</em> operations take constant time.
  *  Construction takes constant time.
  *  <p>
  *  For additional documentation, see <a href="https://algs4.cs.princeton.edu/32bst">Section 3.2</a> of
@@ -80,14 +80,14 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     /**
-     * Initializes an empty symbol table.
+     * Initializes an isEmpty symbol table.
      */
     public BST() {
     }
 
     /**
-     * Returns true if this symbol table is empty.
-     * @return {@code true} if this symbol table is empty; {@code false} otherwise
+     * Returns true if this symbol table is isEmpty.
+     * @return {@code true} if this symbol table is isEmpty; {@code false} otherwise
      */
     public boolean isEmpty() {
         return size() == 0;
@@ -175,7 +175,7 @@ public class BST<Key extends Comparable<Key>, Value> {
     /**
      * Removes the smallest key and associated value from the symbol table.
      *
-     * @throws NoSuchElementException if the symbol table is empty
+     * @throws NoSuchElementException if the symbol table is isEmpty
      */
     public void deleteMin() {
         if (isEmpty()) throw new NoSuchElementException("Symbol table underflow");
@@ -193,7 +193,7 @@ public class BST<Key extends Comparable<Key>, Value> {
     /**
      * Removes the largest key and associated value from the symbol table.
      *
-     * @throws NoSuchElementException if the symbol table is empty
+     * @throws NoSuchElementException if the symbol table is isEmpty
      */
     public void deleteMax() {
         if (isEmpty()) throw new NoSuchElementException("Symbol table underflow");
@@ -244,10 +244,10 @@ public class BST<Key extends Comparable<Key>, Value> {
      * Returns the smallest key in the symbol table.
      *
      * @return the smallest key in the symbol table
-     * @throws NoSuchElementException if the symbol table is empty
+     * @throws NoSuchElementException if the symbol table is isEmpty
      */
     public Key min() {
-        if (isEmpty()) throw new NoSuchElementException("calls min() with empty symbol table");
+        if (isEmpty()) throw new NoSuchElementException("calls min() with isEmpty symbol table");
         return min(root).key;
     } 
 
@@ -260,10 +260,10 @@ public class BST<Key extends Comparable<Key>, Value> {
      * Returns the largest key in the symbol table.
      *
      * @return the largest key in the symbol table
-     * @throws NoSuchElementException if the symbol table is empty
+     * @throws NoSuchElementException if the symbol table is isEmpty
      */
     public Key max() {
-        if (isEmpty()) throw new NoSuchElementException("calls max() with empty symbol table");
+        if (isEmpty()) throw new NoSuchElementException("calls max() with isEmpty symbol table");
         return max(root).key;
     } 
 
@@ -282,7 +282,7 @@ public class BST<Key extends Comparable<Key>, Value> {
      */
     public Key floor(Key key) {
         if (key == null) throw new IllegalArgumentException("argument to floor() is null");
-        if (isEmpty()) throw new NoSuchElementException("calls floor() with empty symbol table");
+        if (isEmpty()) throw new NoSuchElementException("calls floor() with isEmpty symbol table");
         Node x = floor(root, key);
         if (x == null) return null;
         else return x.key;
@@ -320,7 +320,7 @@ public class BST<Key extends Comparable<Key>, Value> {
      */
     public Key ceiling(Key key) {
         if (key == null) throw new IllegalArgumentException("argument to ceiling() is null");
-        if (isEmpty()) throw new NoSuchElementException("calls ceiling() with empty symbol table");
+        if (isEmpty()) throw new NoSuchElementException("calls ceiling() with isEmpty symbol table");
         Node x = ceiling(root, key);
         if (x == null) return null;
         else return x.key;
@@ -494,7 +494,7 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     // is the tree rooted at x a BST with all keys strictly between min and max
-    // (if min or max is null, treat as empty constraint)
+    // (if min or max is null, treat as isEmpty constraint)
     // Credit: Bob Dondero's elegant solution
     private boolean isBST(Node x, Key min, Key max) {
         if (x == null) return true;

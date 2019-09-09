@@ -43,7 +43,7 @@ public class AdjMatrixEdgeWeightedDigraph {
     private DirectedEdge[][] adj;
     
     /**
-     * Initializes an empty edge-weighted digraph with {@code V} vertices and 0 edges.
+     * Initializes an isEmpty edge-weighted digraph with {@code V} vertices and 0 edges.
      * @param V the number of vertices
      * @throws IllegalArgumentException if {@code V < 0}
      */

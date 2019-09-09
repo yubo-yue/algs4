@@ -61,7 +61,7 @@ public class LongestRepeatedSubstring {
      *
      * @param  text the string
      * @return the longest repeated substring that appears in {@code text};
-     *         the empty string if no such string
+     *         the isEmpty string if no such string
      */
     public static String lrs(String text) {
         int n = text.length();

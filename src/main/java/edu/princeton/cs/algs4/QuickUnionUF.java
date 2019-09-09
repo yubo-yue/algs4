@@ -84,7 +84,7 @@ public class QuickUnionUF {
     private int count;     // number of components
 
     /**
-     * Initializes an empty union–find data structure with {@code n} sites
+     * Initializes an isEmpty union–find data structure with {@code n} sites
      * {@code 0} through {@code n-1}. Each site is initially in its own 
      * component.
      *

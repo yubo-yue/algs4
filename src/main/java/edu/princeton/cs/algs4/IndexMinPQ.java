@@ -21,7 +21,7 @@ import java.util.NoSuchElementException;
  *  is associated with each key—the client uses this integer to specify
  *  which key to delete or change.
  *  It also supports methods for peeking at the minimum key,
- *  testing if the priority queue is empty, and iterating through
+ *  testing if the priority queue is isEmpty, and iterating through
  *  the keys.
  *  <p>
  *  This implementation uses a binary heap along with an array to associate
@@ -29,7 +29,7 @@ import java.util.NoSuchElementException;
  *  The <em>insert</em>, <em>delete-the-minimum</em>, <em>delete</em>,
  *  <em>change-key</em>, <em>decrease-key</em>, and <em>increase-key</em>
  *  operations take logarithmic time.
- *  The <em>is-empty</em>, <em>size</em>, <em>min-index</em>, <em>min-key</em>,
+ *  The <em>is-isEmpty</em>, <em>size</em>, <em>min-index</em>, <em>min-key</em>,
  *  <em>contains</em>, and <em>key-of</em> operations take constant time.
  *  Construction takes time proportional to the specified capacity.
  *  <p>
@@ -49,7 +49,7 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
     private Key[] keys;      // keys[i] = priority of i
 
     /**
-     * Initializes an empty indexed priority queue with indices between {@code 0}
+     * Initializes an isEmpty indexed priority queue with indices between {@code 0}
      * and {@code maxN - 1}.
      * @param  maxN the keys on this priority queue are index from {@code 0}
      *         {@code maxN - 1}
@@ -67,9 +67,9 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
     }
 
     /**
-     * Returns true if this priority queue is empty.
+     * Returns true if this priority queue is isEmpty.
      *
-     * @return {@code true} if this priority queue is empty;
+     * @return {@code true} if this priority queue is isEmpty;
      *         {@code false} otherwise
      */
     public boolean isEmpty() {
@@ -121,7 +121,7 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
      * Returns an index associated with a minimum key.
      *
      * @return an index associated with a minimum key
-     * @throws NoSuchElementException if this priority queue is empty
+     * @throws NoSuchElementException if this priority queue is isEmpty
      */
     public int minIndex() {
         if (n == 0) throw new NoSuchElementException("Priority queue underflow");
@@ -132,7 +132,7 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
      * Returns a minimum key.
      *
      * @return a minimum key
-     * @throws NoSuchElementException if this priority queue is empty
+     * @throws NoSuchElementException if this priority queue is isEmpty
      */
     public Key minKey() {
         if (n == 0) throw new NoSuchElementException("Priority queue underflow");
@@ -142,7 +142,7 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
     /**
      * Removes a minimum key and returns its associated index.
      * @return an index associated with a minimum key
-     * @throws NoSuchElementException if this priority queue is empty
+     * @throws NoSuchElementException if this priority queue is isEmpty
      */
     public int delMin() {
         if (n == 0) throw new NoSuchElementException("Priority queue underflow");

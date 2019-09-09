@@ -272,9 +272,9 @@ public class EulerianPath {
         G5.addEdge(StdRandom.uniform(V), StdRandom.uniform(V));
         unitTest(G5, "single edge");
 
-        // empty graph
+        // isEmpty graph
         Graph G6 = new Graph(V);
-        unitTest(G6, "empty graph");
+        unitTest(G6, "isEmpty graph");
 
         // random graph
         Graph G7 = GraphGenerator.simple(V, E);

@@ -20,7 +20,7 @@ import java.util.NoSuchElementException;
  *  an integer between 0 and N-1 is associated with each key ; the client
  *  uses this integer to specify which key to delete or change.
  *  It also supports methods for peeking at the minimum key,
- *  testing if the priority queue is empty, and iterating through
+ *  testing if the priority queue is isEmpty, and iterating through
  *  the keys.
  *  
  *  This implementation uses a multiway heap along with an array to associate
@@ -29,10 +29,10 @@ import java.util.NoSuchElementException;
  *  The delete-the-minimum, delete, change-key and increase-key operations
  *  take time proportional to d*log-d(n)
  *  The insert and decrease-key take time proportional to log-d(n)
- *  The is-empty, min-index, min-key, size, contains and key-of operations take constant time.
+ *  The is-isEmpty, min-index, min-key, size, contains and key-of operations take constant time.
  *  Construction takes time proportional to the specified capacity.
  *  
- *  The arrays used in this structure have the first d indices empty,
+ *  The arrays used in this structure have the first d indices isEmpty,
  *  it apparently helps with caching effects.
  *
  *  @author Tristan Claverie
@@ -48,7 +48,7 @@ public class IndexMultiwayMinPQ<Key> implements Iterable<Integer> {
 	
 	
     /**
-     * Initializes an empty indexed priority queue with indices between {@code 0} to {@code N-1}
+     * Initializes an isEmpty indexed priority queue with indices between {@code 0} to {@code N-1}
      * Worst case is O(n)
      * @param N number of keys in the priority queue, index from {@code 0} to {@code N-1}
      * @param D dimension of the heap
@@ -68,7 +68,7 @@ public class IndexMultiwayMinPQ<Key> implements Iterable<Integer> {
 	}
 	
     /**
-     * Initializes an empty indexed priority queue with indices between {@code 0} to {@code N-1}
+     * Initializes an isEmpty indexed priority queue with indices between {@code 0} to {@code N-1}
      * Worst case is O(n)
      * @param N number of keys in the priority queue, index from {@code 0} to {@code N-1}
      * @param D dimension of the heap
@@ -89,9 +89,9 @@ public class IndexMultiwayMinPQ<Key> implements Iterable<Integer> {
 	}
 
 	/**
-	 * Whether the priority queue is empty
+	 * Whether the priority queue is isEmpty
 	 * Worst case is O(1)
-	 * @return true if the priority queue is empty, false if not
+	 * @return true if the priority queue is isEmpty, false if not
 	 */
 	public boolean isEmpty() {
 		return n == 0;
@@ -138,33 +138,33 @@ public class IndexMultiwayMinPQ<Key> implements Iterable<Integer> {
 	/**
 	 * Gets the index associated with the minimum key
 	 * Worst case is O(1)
-	 * @throws java.util.NoSuchElementException if the priority queue is empty
+	 * @throws java.util.NoSuchElementException if the priority queue is isEmpty
 	 * @return the index associated with the minimum key
 	 */
 	public int minIndex() {
-		if (isEmpty()) throw new NoSuchElementException("Priority queue is empty");
+		if (isEmpty()) throw new NoSuchElementException("Priority queue is isEmpty");
 		return pq[d];
 	}
 
 	/**
 	 * Gets the minimum key currently in the queue
 	 * Worst case is O(1)
-	 * @throws java.util.NoSuchElementException if the priority queue is empty
+	 * @throws java.util.NoSuchElementException if the priority queue is isEmpty
 	 * @return the minimum key currently in the priority queue
 	 */
 	public Key minKey() {
-		if (isEmpty()) throw new NoSuchElementException("Priority queue is empty");
+		if (isEmpty()) throw new NoSuchElementException("Priority queue is isEmpty");
 		return keys[pq[d]+d];
 	}
 
 	/**
 	 * Deletes the minimum key
 	 * Worst case is O(d*log-d(n))
-	 * @throws java.util.NoSuchElementException if the priority queue is empty
+	 * @throws java.util.NoSuchElementException if the priority queue is isEmpty
 	 * @return the index associated with the minimum key
 	 */
 	public int delMin() {
-		if (isEmpty()) throw new NoSuchElementException("Priority queue is empty");
+		if (isEmpty()) throw new NoSuchElementException("Priority queue is isEmpty");
 		int min = pq[d];
 		exch(0, --n);
 		sink(0);

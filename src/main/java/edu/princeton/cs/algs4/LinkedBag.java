@@ -59,7 +59,7 @@ public class LinkedBag<Item> implements Iterable<Item> {
     }
 
     /**
-     * Initializes an empty bag.
+     * Initializes an isEmpty bag.
      */
     public LinkedBag() {
         first = null;
@@ -67,8 +67,8 @@ public class LinkedBag<Item> implements Iterable<Item> {
     }
 
     /**
-     * Is this bag empty?
-     * @return true if this bag is empty; false otherwise
+     * Is this bag isEmpty?
+     * @return true if this bag is isEmpty; false otherwise
      */
     public boolean isEmpty() {
         return first == null;

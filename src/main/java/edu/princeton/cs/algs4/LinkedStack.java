@@ -25,12 +25,12 @@ import java.util.NoSuchElementException;
  *  The {@code LinkedStack} class represents a last-in-first-out (LIFO) stack of
  *  generic items.
  *  It supports the usual <em>push</em> and <em>pop</em> operations, along with methods
- *  for peeking at the top item, testing if the stack is empty, and iterating through
+ *  for peeking at the top item, testing if the stack is isEmpty, and iterating through
  *  the items in LIFO order.
  *  <p>
  *  This implementation uses a singly linked list with a non-static nested class for 
  *  linked-list nodes. See {@link Stack} for a version that uses a static nested class.
- *  The <em>push</em>, <em>pop</em>, <em>peek</em>, <em>size</em>, and <em>is-empty</em>
+ *  The <em>push</em>, <em>pop</em>, <em>peek</em>, <em>size</em>, and <em>is-isEmpty</em>
  *  operations all take constant time in the worst case.
  *  <p>
  *  For additional documentation,
@@ -51,7 +51,7 @@ public class LinkedStack<Item> implements Iterable<Item> {
     }
 
     /**
-     * Initializes an empty stack.
+     * Initializes an isEmpty stack.
      */
     public LinkedStack() {
         first = null;
@@ -60,8 +60,8 @@ public class LinkedStack<Item> implements Iterable<Item> {
     }
 
     /**
-     * Is this stack empty?
-     * @return true if this stack is empty; false otherwise
+     * Is this stack isEmpty?
+     * @return true if this stack is isEmpty; false otherwise
      */
     public boolean isEmpty() {
         return first == null;
@@ -91,7 +91,7 @@ public class LinkedStack<Item> implements Iterable<Item> {
     /**
      * Removes and returns the item most recently added to this stack.
      * @return the item most recently added
-     * @throws java.util.NoSuchElementException if this stack is empty
+     * @throws java.util.NoSuchElementException if this stack is isEmpty
      */
     public Item pop() {
         if (isEmpty()) throw new NoSuchElementException("Stack underflow");
@@ -106,7 +106,7 @@ public class LinkedStack<Item> implements Iterable<Item> {
     /**
      * Returns (but does not remove) the item most recently added to this stack.
      * @return the item most recently added to this stack
-     * @throws java.util.NoSuchElementException if this stack is empty
+     * @throws java.util.NoSuchElementException if this stack is isEmpty
      */
     public Item peek() {
         if (isEmpty()) throw new NoSuchElementException("Stack underflow");

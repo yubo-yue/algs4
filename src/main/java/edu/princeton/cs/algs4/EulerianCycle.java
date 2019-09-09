@@ -257,9 +257,9 @@ public class EulerianCycle {
         Graph G2 = GraphGenerator.eulerianPath(V, E);
         unitTest(G2, "Eulerian path");
 
-        // empty graph
+        // isEmpty graph
         Graph G3 = new Graph(V);
-        unitTest(G3, "empty graph");
+        unitTest(G3, "isEmpty graph");
 
         // self loop
         Graph G4 = new Graph(V);

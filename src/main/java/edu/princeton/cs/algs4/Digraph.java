@@ -61,7 +61,7 @@ public class Digraph {
     private int[] indegree;        // indegree[v] = indegree of vertex v
     
     /**
-     * Initializes an empty digraph with <em>V</em> vertices.
+     * Initializes an isEmpty digraph with <em>V</em> vertices.
      *
      * @param  V the number of vertices
      * @throws IllegalArgumentException if {@code V < 0}

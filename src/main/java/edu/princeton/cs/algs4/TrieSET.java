@@ -49,7 +49,7 @@ public class TrieSET implements Iterable<String> {
     }
 
     /**
-     * Initializes an empty set of strings.
+     * Initializes an isEmpty set of strings.
      */
     public TrieSET() {
     }
@@ -107,8 +107,8 @@ public class TrieSET implements Iterable<String> {
     }
 
     /**
-     * Is the set empty?
-     * @return {@code true} if the set is empty, and {@code false} otherwise
+     * Is the set isEmpty?
+     * @return {@code true} if the set is isEmpty, and {@code false} otherwise
      */
     public boolean isEmpty() {
         return size() == 0;
@@ -231,7 +231,7 @@ public class TrieSET implements Iterable<String> {
             x.next[c] = delete(x.next[c], key, d+1);
         }
 
-        // remove subtrie rooted at x if it is completely empty
+        // remove subtrie rooted at x if it is completely isEmpty
         if (x.isString) return x;
         for (int c = 0; c < R; c++)
             if (x.next[c] != null)

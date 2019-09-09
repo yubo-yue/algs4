@@ -82,8 +82,8 @@ public final class BinaryStdIn {
     }
 
    /**
-     * Returns true if standard input is empty.
-     * @return true if and only if standard input is empty
+     * Returns true if standard input is isEmpty.
+     * @return true if and only if standard input is isEmpty
      */
     public static boolean isEmpty() {
         if (!isInitialized) initialize();
@@ -94,10 +94,10 @@ public final class BinaryStdIn {
      * Reads the next bit of data from standard input and return as a boolean.
      *
      * @return the next bit of data from standard input as a {@code boolean}
-     * @throws NoSuchElementException if standard input is empty
+     * @throws NoSuchElementException if standard input is isEmpty
      */
     public static boolean readBoolean() {
-        if (isEmpty()) throw new NoSuchElementException("Reading from empty input stream");
+        if (isEmpty()) throw new NoSuchElementException("Reading from isEmpty input stream");
         n--;
         boolean bit = ((buffer >> n) & 1) == 1;
         if (n == 0) fillBuffer();
@@ -113,7 +113,7 @@ public final class BinaryStdIn {
      * @throws NoSuchElementException if there are fewer than 8 bits available on standard input
      */
     public static char readChar() {
-        if (isEmpty()) throw new NoSuchElementException("Reading from empty input stream");
+        if (isEmpty()) throw new NoSuchElementException("Reading from isEmpty input stream");
 
         // special case when aligned byte
         if (n == 8) {
@@ -127,7 +127,7 @@ public final class BinaryStdIn {
         x <<= (8 - n);
         int oldN = n;
         fillBuffer();
-        if (isEmpty()) throw new NoSuchElementException("Reading from empty input stream");
+        if (isEmpty()) throw new NoSuchElementException("Reading from isEmpty input stream");
         n = oldN;
         x |= (buffer >>> n);
         return (char) (x & 0xff);
@@ -162,11 +162,11 @@ public final class BinaryStdIn {
      * Reads the remaining bytes of data from standard input and return as a string. 
      *
      * @return the remaining bytes of data from standard input as a {@code String}
-     * @throws NoSuchElementException if standard input is empty or if the number of bits
+     * @throws NoSuchElementException if standard input is isEmpty or if the number of bits
      *         available on standard input is not a multiple of 8 (byte-aligned)
      */
     public static String readString() {
-        if (isEmpty()) throw new NoSuchElementException("Reading from empty input stream");
+        if (isEmpty()) throw new NoSuchElementException("Reading from isEmpty input stream");
 
         StringBuilder sb = new StringBuilder();
         while (!isEmpty()) {
