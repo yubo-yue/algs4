@@ -3,6 +3,9 @@ package leetcode.bst;
 import java.util.Objects;
 import java.util.Stack;
 
+/**
+ * https://leetcode.com/problems/validate-binary-search-tree/
+ */
 public class BSTValidationChecker_1 {
     public boolean isValidBST(TreeNode root) {
         final Stack<TreeNode> stack = new Stack<>();
