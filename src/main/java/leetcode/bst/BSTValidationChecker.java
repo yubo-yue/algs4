@@ -26,4 +26,16 @@ public class BSTValidationChecker {
 
         return true;
     }
+
+    public static void main(String[] args) {
+        int[] input_01 = {2, 1, 3};
+        TreeNode root = new TreeNode(2);
+        TreeNode left = new TreeNode(1);
+        TreeNode right = new TreeNode(3);
+        root.left = left;
+        root.right = right;
+
+        boolean result = new BSTValidationChecker().isValidBST(root);
+        System.out.println("root is BST " + result);
+    }
 }
